@@ -344,11 +344,7 @@ hr {
     background-image: url("../images/2048.jpg"); }
   .tile.tile-super .tile-inner {
     color: #f9f6f2;
-    background: #3c3a33;
-    font-size: 30px; }
-    @media screen and (max-width: 520px) {
-      .tile.tile-super .tile-inner {
-        font-size: 10px; } }
+    background: #3c3a33; }
 
 @-webkit-keyframes $animation-name {
   0% {
@@ -692,9 +688,6 @@ hr {
     -moz-transform: translate(363px, 363px);
     -ms-transform: translate(363px, 363px);
     transform: translate(363px, 363px); }
-
-  .tile .tile-inner {
-    font-size: 35px; }
 
   .game-message p {
     font-size: 30px !important;

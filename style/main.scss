@@ -317,12 +317,9 @@ hr {
   .tile-inner {
     border-radius: $tile-border-radius;
 
-    background: $tile-color;
-    text-align: center;
-    font-weight: bold;
+    background-size: cover;
     z-index: 10;
-
-    font-size: 55px;
+    font-size: 0;
   }
 
   // Movement transition
@@ -336,17 +333,17 @@ hr {
   $limit: 11;
 
   // Colors for all 11 states, false = no special color
-  $special-colors: false false, // 2
-                   false false, // 4
-                   #f78e48 true, // 8
-                   #fc5e2e true, // 16
-                   #ff3333 true, // 32
-                   #ff0000 true, // 64
-                   false true, // 128
-                   false true, // 256
-                   false true, // 512
-                   false true, // 1024
-                   false true; // 2048
+  $special-backgrounds: '../images/2.jpg' false, // 2
+                        '../images/4.png' false, // 4
+                        '../images/8.jpg' true, // 8
+                        '../images/16.jpg' true, // 16
+                        '../images/32.jpeg' true, // 32
+                        '../images/64.jpg' true, // 64
+                        '../images/128.jpg' true, // 128
+                        '../images/256.jpg' true, // 256
+                        '../images/512.jpg' true, // 512
+                        '../images/1024.jpg' true, // 1024
+                        '../images/2048.jpg' true; // 2048
 
   // Build tile colors
   @while $exponent <= $limit {
@@ -357,21 +354,13 @@ hr {
       $gold-percent: ($exponent - 1) / ($limit - 1) * 100;
       $mixed-background: mix($tile-gold-color, $tile-color, $gold-percent);
 
-      $nth-color: nth($special-colors, $exponent);
+      $nth-color: nth($special-backgrounds, $exponent);
 
       $special-background: nth($nth-color, 1);
       $bright-color: nth($nth-color, 2);
 
-      @if $special-background {
-        $mixed-background: mix($special-background, $mixed-background, 55%);
-      }
-
-      @if $bright-color {
-        color: $bright-text-color;
-      }
-
       // Set background
-      background: $mixed-background;
+      background-image: url($special-background);
 
       // Add glow
       $glow-opacity: max($exponent - 4, 0) / ($limit - 4);
@@ -379,22 +368,6 @@ hr {
       @if not $special-background {
         box-shadow: 0 0 30px 10px rgba($tile-gold-glow-color, $glow-opacity / 1.8),
                     inset 0 0 0 1px rgba(white, $glow-opacity / 3);
-      }
-
-      // Adjust font size for bigger numbers
-      @if $power >= 100 and $power < 1000 {
-        font-size: 45px;
-
-        // Media queries placed here to avoid carrying over the rest of the logic
-        @include smaller($mobile-threshold) {
-          font-size: 25px;
-        }
-      } @else if $power >= 1000 {
-        font-size: 35px;
-
-        @include smaller($mobile-threshold) {
-          font-size: 15px;
-        }
       }
     }
 

@@ -343,7 +343,7 @@ hr {
   .tile.tile-2048 .tile-inner {
     background-image: url("../images/2048.jpg"); }
   .tile.tile-super .tile-inner {
-    background-image: url("../images/4096.jpeg"); }
+    background-image: url("../images/4096.jpg"); }
 
 @-webkit-keyframes $animation-name {
   0% {

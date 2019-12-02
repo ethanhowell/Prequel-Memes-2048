@@ -343,17 +343,14 @@ hr {
                         '../images/256.jpg' true, // 256
                         '../images/512.jpg' true, // 512
                         '../images/1024.jpg' true, // 1024
-                        '../images/2048.jpg' true; // 2048
+                        '../images/2048.jpg' true, // 2048
+                        '../images/4096.jpeg' true; // 4096
 
   // Build tile colors
   @while $exponent <= $limit {
     $power: pow($base, $exponent);
 
     &.tile-#{$power} .tile-inner {
-      // Calculate base background color
-      $gold-percent: ($exponent - 1) / ($limit - 1) * 100;
-      $mixed-background: mix($tile-gold-color, $tile-color, $gold-percent);
-
       $nth-color: nth($special-backgrounds, $exponent);
 
       $special-background: nth($nth-color, 1);
@@ -376,8 +373,12 @@ hr {
 
   // Super tiles (above 2048)
   &.tile-super .tile-inner {
-    color: $bright-text-color;
-    background: mix(#333, $tile-gold-color, 95%);
+      $nth-color: nth($special-backgrounds, 12);
+
+      $special-background: nth($nth-color, 1);
+
+      // Set background
+      background-image: url($special-background);
   }
 }
 

@@ -330,21 +330,26 @@ hr {
 
   $base: 2;
   $exponent: 1;
-  $limit: 11;
+  $limit: 17;
 
-  // Colors for all 11 states, false = no special color
-  $special-backgrounds: '../images/2.jpg' false, // 2
-                        '../images/4.png' false, // 4
-                        '../images/8.jpg' true, // 8
-                        '../images/16.jpg' true, // 16
-                        '../images/32.jpeg' true, // 32
-                        '../images/64.jpg' true, // 64
-                        '../images/128.jpg' true, // 128
-                        '../images/256.jpg' true, // 256
-                        '../images/512.jpg' true, // 512
-                        '../images/1024.jpg' true, // 1024
-                        '../images/2048.jpg' true, // 2048
-                        '../images/4096.jpg' true; // 4096
+  // Colors for all 17 states, false = no special color
+  $special-backgrounds: '../images/2.jpg' false,
+                        '../images/4.png' false,
+                        '../images/8.jpg' true,
+                        '../images/16.jpg' true,
+                        '../images/32.jpeg' true,
+                        '../images/64.jpg' true,
+                        '../images/128.jpg' true,
+                        '../images/256.jpg' true,
+                        '../images/512.jpg' true,
+                        '../images/1024.jpg' true,
+                        '../images/2048.jpg' true,
+                        '../images/4096.jpg' true,
+                        '../images/8192.jpg' true,
+                        '../images/16384.jpg' true,
+                        '../images/32768.jpg' true,
+                        '../images/65536.jpg' true,
+                        '../images/131072.jpg' true;
 
   // Build tile colors
   @while $exponent <= $limit {
@@ -369,16 +374,6 @@ hr {
     }
 
     $exponent: $exponent + 1;
-  }
-
-  // Super tiles (above 2048)
-  &.tile-super .tile-inner {
-      $nth-color: nth($special-backgrounds, 12);
-
-      $special-background: nth($nth-color, 1);
-
-      // Set background
-      background-image: url($special-background);
   }
 }
 

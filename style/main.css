@@ -342,8 +342,18 @@ hr {
     background-image: url("../images/1024.jpg"); }
   .tile.tile-2048 .tile-inner {
     background-image: url("../images/2048.jpg"); }
-  .tile.tile-super .tile-inner {
+  .tile.tile-4096 .tile-inner {
     background-image: url("../images/4096.jpg"); }
+  .tile.tile-8192 .tile-inner {
+    background-image: url("../images/8192.jpg"); }
+  .tile.tile-16384 .tile-inner {
+    background-image: url("../images/16384.jpg"); }
+  .tile.tile-32768 .tile-inner {
+    background-image: url("../images/32768.jpg"); }
+  .tile.tile-65536 .tile-inner {
+    background-image: url("../images/65536.jpg"); }
+  .tile.tile-131072 .tile-inner {
+    background-image: url("../images/131072.jpg"); }
 
 @-webkit-keyframes $animation-name {
   0% {
